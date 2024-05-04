@@ -1,17 +1,19 @@
 //
-//  TodoApp.swift
-//  Todo
+//  ToDoListApp.swift
+//  ToDoList
 //
-//  Created by 羅子淵 on 2024/5/4.
+//  Created by 羅子淵 on 2024/5/3.
 //
 
 import SwiftUI
 
 @main
-struct TodoApp: App {
+struct ToDoListApp: App {
+    let persistence = Persistance.share
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().environment(\.managedObjectContext, persistence.container.viewContext)
         }
     }
 }
